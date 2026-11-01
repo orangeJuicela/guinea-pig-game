@@ -443,6 +443,7 @@ function choose(v){
   closePicker();
   say(changed || !hadChoice ? '嗨！我是' + PIGS[v].label + '天竺鼠～' : '噗噗～ 我在這裡！', 2.6);
   SND.play(['wheek_short1','wheek_short2'], {group:'wheek', cooldown:0.5});
+  SHOP.starterGift(1100);
 }
 $('swap').addEventListener('click', e => { e.stopPropagation(); openPicker(true); });
 pk.close.addEventListener('click', e => { e.stopPropagation(); closePicker(); });
@@ -949,6 +950,19 @@ const SHOP = (() => {
     }
     save(); changed = true; pKey = ''; render();
   }
+  const GIFT = 'gp-starter-gift', GIFT_N = 30;
+  function starterGift(delay = 700){
+    let has = true; try { has = !!localStorage.getItem(GIFT); } catch(e){}
+    if (has) return false;
+    POMO.addFeed(GIFT_N);
+    try { localStorage.setItem(GIFT, JSON.stringify({ n: GIFT_N, at: Date.now() })); } catch(e){}
+    setTimeout(() => {
+      modal('<div class="ic"><img alt="" src="' + feedIcon() + '" style="image-rendering:pixelated;width:110px"></div><h3>🎁 見面禮！</h3><p>送妳 <b>' + GIFT_N + '</b> 飼料，去小商店逛逛吧～<br><small>現在有飼料 ×' + bal() + '</small></p>'
+        + '<div class="acts"><button class="mini" data-m="cancel">好～</button><button class="mini on" data-m="goshop">🏪 去小商店</button></div>', true);
+      SND.play(['wheek_short1','wheek_short2'], {group:'wheek', cooldown:0.3});
+    }, delay);
+    return true;
+  }
   function openShop(v){ view = v || 'shop'; open = true; changed = false; el.box.hidden = false; el.box.scrollTop = 0; render(); }
   function closeShop(){
     open = false; el.box.hidden = true; closeModal();
@@ -966,6 +980,7 @@ const SHOP = (() => {
   el.modal.addEventListener('click', e => {
     const b = e.target.closest('button'); if (!b){ if (e.target === el.modal) closeModal(); return; }
     if (b.dataset.m === 'buy') buy(b.dataset.id);
+    else if (b.dataset.m === 'goshop'){ closeModal(); openShop('shop'); }
     else if (b.dataset.m === 'use'){ closeModal(); const id = b.dataset.id; if (!(BY[id].kind === 'wear' ? st.wear === id : st.placed.includes(id))) toggle(id); view = 'col'; render(); }
     else closeModal();
   });
@@ -977,7 +992,7 @@ const SHOP = (() => {
     c.drawImage(pimg[v][pose], -m.cx*SCALE, -m.h*SCALE, m.w*SCALE, m.h*SCALE); drawWear(c, pose, SCALE, 'front', v, id); c.restore();
     return cv.toDataURL();
   }
-  return { drawWear, drawFurn, snap, portrait, open: openShop, close: closeShop, buy, toggle, askBuy, render,
+  return { drawWear, drawFurn, snap, starterGift, portrait, open: openShop, close: closeShop, buy, toggle, askBuy, render,
     state: () => JSON.parse(JSON.stringify({ ...st, open, view, balance: bal() })), items: ITEMS, ready: () => loadedN === Object.keys(SRC).length };
 })();
 
@@ -1129,7 +1144,7 @@ function step(dt){
 function start(){
   window.__gp = { audio: SND.status, unlockAudio: SND.unlock, pet, feed, jump, sleep, wake, step, state: () => S.state, pause(){ paused = true; }, choose, variant: () => sel, pomo: POMO, shop: SHOP, ready:true };
   POMO.tick();
-  if (!hadChoice) openPicker(false);
+  if (!hadChoice) openPicker(false); else SHOP.starterGift(800);
   last = performance.now(); requestAnimationFrame(frame);
 }
 })();
