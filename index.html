@@ -127,8 +127,14 @@ const SND = (() => {
     return ac.state === 'suspended' ? ac.resume() : Promise.resolve();
   }
   // first user gesture unlocks audio (autoplay policy)
-  const first = () => { unlock(); window.removeEventListener('pointerdown', first, true); window.removeEventListener('keydown', first, true); };
-  window.addEventListener('pointerdown', first, true); window.addEventListener('keydown', first, true);
+  const EVTS = ['pointerdown','touchstart','touchend','mousedown','click','keydown'];
+  const first = () => {
+    unlock().then(() => {
+      try { const sb = ac.createBuffer(1, 1, 22050), s0 = ac.createBufferSource(); s0.buffer = sb; s0.connect(ac.destination); s0.start(0); } catch(e){}
+      if (ac && ac.state === 'running') EVTS.forEach(ev => window.removeEventListener(ev, first, true));
+    }).catch(()=>{});
+  };
+  EVTS.forEach(ev => window.addEventListener(ev, first, true));
   btn.addEventListener('click', e => {
     e.stopPropagation(); muted = !muted; paint();
     try { localStorage.setItem('gp-muted', muted ? '1' : '0'); } catch(err){}
@@ -140,7 +146,8 @@ const SND = (() => {
       decoding.then(() => { if (performance.now() - t0 < 400) play(names, opt); });
       return false;
     }
-    if (!ac || muted || ac.state !== 'running') return false;
+    if (!ac || muted) return false;
+    if (ac.state !== 'running'){ ac.resume().then(() => { if (ac.state === 'running') play(names, opt); }).catch(()=>{}); return false; }
     const group = opt.group || names[0], now = performance.now()/1000;
     voices = voices.filter(e => e > now);
     if (last[group] && now - last[group] < (opt.cooldown ?? 0.3)) return false;
