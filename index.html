@@ -56,6 +56,65 @@
   .pk .close[hidden]{display:none}
   .pk .close{display:block;margin:16px auto 0;font-size:15px;padding:9px 20px 8px;border-radius:999px;background:#fff;
     border:3px solid var(--line);box-shadow:0 3px 0 var(--line)}
+  .roomrow{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:14px}
+  .roomrow .swap{margin:0}
+  .fbtn{font-size:15px;font-weight:700;padding:9px 18px 8px;border-radius:999px;background:#ffe6de;border:3px solid #eaa48f;box-shadow:0 3px 0 #eaa48f;font-variant-numeric:tabular-nums}
+  .cnt{display:inline-block;margin-left:4px;font-size:12px;padding:1px 6px;border-radius:999px;background:#fff;vertical-align:2px}
+  .fm{position:fixed;inset:0;z-index:40;background:var(--bg);display:flex;justify-content:center;overflow-y:auto;-webkit-overflow-scrolling:touch}
+  .fm[hidden]{display:none}
+  .fmw{width:min(94vw,500px);padding:12px 0 26px}
+  .fmTop{display:flex;align-items:center;gap:8px}
+  .fmTop .sp{flex:1}
+  .pill{font-size:15px;padding:8px 13px 7px;border-radius:999px;background:#fff;border:3px solid var(--line);box-shadow:0 3px 0 var(--line)}
+  .pill.on{background:#ffe6de;border-color:#eaa48f;box-shadow:0 3px 0 #eaa48f}
+  .panel{position:relative;margin-top:14px;background:#fff8e8;border:4px solid #b98250;border-radius:22px;box-shadow:0 6px 0 #9c6a3e;overflow:hidden}
+  .panel[hidden]{display:none}
+  .ptitle{text-align:center;font-size:clamp(24px,6.6vw,30px);font-weight:800;letter-spacing:5px;margin:16px 0 2px;color:#5a3820}
+  .ring{position:relative;width:min(62vw,240px);margin:4px auto 0}
+  .fm canvas{cursor:default;touch-action:manipulation}
+  .ring canvas{width:100%;height:auto;aspect-ratio:1;image-rendering:pixelated;image-rendering:crisp-edges}
+  .ring .rnd{position:absolute;left:0;right:0;top:61%;text-align:center;font-size:clamp(15px,4.4vw,19px);font-weight:800;letter-spacing:2px;color:#5a3820}
+  .sets{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:8px 10px 2px;font-size:14px}
+  .sets[hidden]{display:none}
+  .seg{display:inline-flex;align-items:center;gap:4px}
+  .seg button{font-size:14px;padding:5px 10px 4px;border-radius:10px;background:#fff;border:2px solid var(--line);box-shadow:0 2px 0 var(--line)}
+  .seg button.on{background:#ffe6de;border-color:#eaa48f;box-shadow:0 2px 0 #eaa48f}
+  .seg button:disabled{opacity:.45}
+  .scene{position:relative;margin-top:6px}
+  .scene canvas{width:100%;height:auto;aspect-ratio:800/440;display:block}
+  #bCv{aspect-ratio:800/560}
+  .sbub{position:absolute;background:#fff;border:3px solid #6b4226;border-radius:12px;padding:3px 12px;font-size:clamp(14px,4vw,18px);font-weight:700;white-space:nowrap;pointer-events:none;transition:opacity .25s;box-shadow:0 3px 0 rgba(107,66,38,.25)}
+  .sbub::after{content:"";position:absolute;bottom:-9px;width:12px;height:12px;background:#fff;border-right:3px solid #6b4226;border-bottom:3px solid #6b4226;transform:rotate(45deg);left:var(--tail,24px)}
+  .reward{position:absolute;left:50%;bottom:3%;transform:translateX(-50%);background:#fff;border:3px solid #6b4226;border-radius:12px;padding:6px 20px;font-size:clamp(17px,4.8vw,21px);font-weight:800;line-height:1.45;text-align:center;box-shadow:0 4px 0 rgba(107,66,38,.3);animation:pop .45s cubic-bezier(.3,1.6,.5,1)}
+  .reward[hidden]{display:none}
+  .reward small{display:block;font-size:12px;line-height:1.2;font-weight:600;opacity:.7}
+  @keyframes pop{from{transform:translateX(-50%) scale(.3);opacity:0}to{transform:translateX(-50%) scale(1);opacity:1}}
+  .fbar{display:flex;flex-direction:column;align-items:center;gap:8px;background:#c48a52;padding:12px 14px 16px;border-top:3px solid #a8703f}
+  .bigbtn{min-width:min(56vw,220px);background:#fff1d6;border:3px solid #7a4b28;box-shadow:0 5px 0 #7a4b28;border-radius:14px;font-size:clamp(19px,5.4vw,23px);letter-spacing:4px;padding:11px 18px 9px}
+  .bigbtn.warn{background:#ffd9d0}
+  .link{background:none;border:none;font-size:14px;font-weight:600;color:#fff5e4;text-decoration:underline;padding:2px 8px;box-shadow:none}
+  .bclock{display:block;margin:4px auto 0;width:min(38vw,150px);height:auto;aspect-ratio:30/7;image-rendering:pixelated}
+  .recTop{display:flex;align-items:center;gap:6px;padding:4px 12px 0}
+  .recTop img{width:34%;max-width:150px;filter:drop-shadow(0 6px 0 rgba(214,186,140,.45))}
+  .cal{flex:1;background:#fff;border:3px solid #b98250;border-radius:10px;overflow:hidden;position:relative;margin-top:10px}
+  .cal .ch{background:#e9a477;color:#fff;font-weight:800;text-align:center;font-size:13px;padding:7px 0 4px;letter-spacing:1px;border-bottom:3px solid #b98250}
+  .cal .rings{position:absolute;top:-1px;left:0;right:0;display:flex;justify-content:space-around;padding:0 14%;pointer-events:none}
+  .cal .rings i{width:5px;height:8px;background:#7a7a86;border-radius:3px}
+  .cal .g{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:#f0e2c6;padding:1px}
+  .cal .g span{background:#fffdf7;aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:10px;color:#a88866;position:relative}
+  .cal .g span.wd{background:#fff3e6;font-weight:700;color:#8a6040;aspect-ratio:auto;padding:2px 0}
+  .cal .g span.t{outline:2px solid #e07890;outline-offset:-2px;color:#6b4226;font-weight:800}
+  .cal .g span img{width:78%;image-rendering:pixelated}
+  .cal .g span b{position:absolute;right:1px;bottom:0;font-size:8px;color:#c0392b}
+  .rcard{margin:12px 12px 0;background:#fff3df;border:3px solid #ecd6ae;border-radius:14px;padding:10px 8px;text-align:center;font-size:clamp(17px,4.8vw,20px);font-weight:800;line-height:1.6}
+  .hearts{display:flex;justify-content:center;gap:6px;margin-top:4px}
+  .hearts img{width:clamp(26px,8vw,34px);image-rendering:pixelated}
+  .rcard small{display:block;font-size:12px;font-weight:600;opacity:.65;line-height:1.3;margin-top:2px}
+  .inv{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 12px 14px}
+  .inv div{background:#fff3df;border:3px solid #ecd6ae;border-radius:12px;padding:6px 2px 4px;text-align:center;font-size:13px;font-weight:700}
+  .inv img{display:block;margin:0 auto 2px;height:40px;width:auto;image-rendering:pixelated}
+  .inv img.sm{image-rendering:auto}
+  .cnt[hidden]{display:none}
 </style>
 </head>
 <body>
@@ -72,13 +131,47 @@
     <div class="stat"><b>⭐ 精神</b><div class="bar"><i id="barEnergy" style="background:#f2c25c"></i></div></div>
   </div>
   <div class="btns">
-    <button id="feed">🥬 餵菜</button>
+    <button id="feed">🥬 餵菜<span class="cnt" id="feedCnt" hidden></span></button>
     <button id="jump">✨ 開心跳</button>
     <button id="sleep">🌙 睡覺</button>
   </div>
-  <button class="swap" id="swap">🐹 換一隻天竺鼠</button>
+  <div class="roomrow"><button class="fbtn" id="focusBtn">🍅 專心</button><button class="swap" id="swap">🐹 換一隻天竺鼠</button></div>
   <div class="hint">點一下天竺鼠可以摸摸牠喔</div>
   <div class="credit">音效：天竺鼠真實錄音，來自 Wikimedia Commons（The undertow，公有領域）<br><a href="https://commons.wikimedia.org/wiki/File:Guinea_Pig_Feeding_Wheek.ogg" target="_blank" rel="noopener">Feeding Wheek</a>・<a href="https://commons.wikimedia.org/wiki/File:Guinea_Pig_Happy.ogg" target="_blank" rel="noopener">Happy</a>・<a href="https://commons.wikimedia.org/wiki/File:Guinea_Pig_Chirping.ogg" target="_blank" rel="noopener">Chirping</a></div>
+</div>
+<div class="fm" id="fm" hidden role="dialog" aria-label="番茄鐘專心模式">
+  <div class="fmw">
+    <div class="fmTop">
+      <button class="pill" id="fmBack">← 回小屋</button>
+      <span class="sp"></span>
+      <button class="pill on" id="tabTimer">🍅 番茄鐘</button>
+      <button class="pill" id="tabRec">📅 紀錄</button>
+    </div>
+    <div class="panel" id="pFocus">
+      <div class="ptitle" id="fTitle">番茄鐘</div>
+      <div class="ring"><canvas id="ringCv" width="100" height="100"></canvas><div class="rnd" id="fRound">第 1 輪</div></div>
+      <div class="sets" id="fSets">
+        <span class="seg">專心 <button data-f="25">25</button><button data-f="50">50</button> 分</span>
+        <span class="seg">休息 <button data-b="5">5</button><button data-b="10">10</button> 分</span>
+      </div>
+      <div class="scene"><canvas id="fCv" width="800" height="440"></canvas><div class="sbub" id="fBub" style="right:3%;top:5%;opacity:0;--tail:calc(100% - 60px)">…</div></div>
+      <div class="fbar"><button class="bigbtn" id="fStart">開始專心</button><button class="bigbtn" id="fGive" hidden>放棄</button></div>
+    </div>
+    <div class="panel" id="pBreak" hidden>
+      <div class="ptitle" id="bTitle">休息時間</div>
+      <canvas class="bclock" id="bClock" width="30" height="7"></canvas>
+      <div class="scene"><canvas id="bCv" width="800" height="560"></canvas>
+        <div class="sbub" id="bBub" style="left:7%;top:6%;--tail:58px">wheek！</div>
+        <div class="reward" id="bRew" hidden></div></div>
+      <div class="fbar"><button class="bigbtn" id="bFeed">餵牠</button><button class="link" id="bSkip">跳過休息，開始下一輪</button></div>
+    </div>
+    <div class="panel" id="pRec" hidden>
+      <div class="ptitle">今日紀錄</div>
+      <div class="recTop"><img id="rPig" alt=""><div class="cal"><div class="rings"><i></i><i></i><i></i><i></i><i></i></div><div class="ch" id="rMonth"></div><div class="g" id="rGrid"></div></div></div>
+      <div class="rcard"><div id="rToday">今天專心 0 輪</div><div id="rStreak">連續 0 天</div><div class="hearts" id="rHearts"></div><small id="rAff"></small></div>
+      <div class="inv" id="rInv"></div>
+    </div>
+  </div>
 </div>
 <div class="picker" id="picker" hidden role="dialog" aria-label="選擇天竺鼠">
   <div class="pk">
@@ -225,7 +318,8 @@ function pet(){
 function feed(){
   if (S.state === 'sleep'){ wake(); return; }
   if (S.state === 'jump' || S.state === 'eat') return;
-  setState('eat'); setPose('idle'); say('哇！有菜菜！');
+  setState('eat'); setPose('idle');
+  if (POMO.useLettuce()){ say('哇！是專心換來的生菜！'); S.mood = clamp(S.mood + 6, 0, 100); } else say('哇！有菜菜！');
 }
 function jump(){
   if (S.state === 'sleep'){ wake(); return; }
@@ -317,6 +411,327 @@ function drawParts(){
   }
   ctx.globalAlpha = 1;
 }
+
+// ---------- 🍅 Pomodoro focus mode ----------
+const POMO = (() => {
+  const LS_P = 'gp-pomo', LS_D = 'gp-pomo-data', MIN = 60000;
+  const load = (k, d) => { try { const v = JSON.parse(localStorage.getItem(k)); return v && typeof v === 'object' ? Object.assign(d, v) : d; } catch(e){ return d; } };
+  let P = load(LS_P, { phase:'idle', start:0, dur:0, long:false, f:25, b:5, reward:null, rewardSeen:true, soundDue:false });
+  let D = load(LS_D, { days:{}, inv:{}, total:0, aff:0 });
+  D.inv = Object.assign({ lettuce:0, feed:0 }, D.inv || {});
+  const saveP = () => { try { localStorage.setItem(LS_P, JSON.stringify(P)); } catch(e){} };
+  const saveD = () => { try { localStorage.setItem(LS_D, JSON.stringify(D)); } catch(e){} };
+  const now = () => Date.now();
+  const pad = n => String(n).padStart(2, '0');
+  const dkey = t => { const d = new Date(t); return d.getFullYear() + '-' + pad(d.getMonth()+1) + '-' + pad(d.getDate()); };
+  const today = () => D.days[dkey(now())] || 0;
+  function streak(){
+    const d = new Date(now()); d.setHours(12,0,0,0);
+    if (!D.days[dkey(d.getTime())]) d.setDate(d.getDate() - 1);
+    let n = 0; while (D.days[dkey(d.getTime())]){ n++; d.setDate(d.getDate() - 1); }
+    return n;
+  }
+  const remain = () => P.phase === 'idle' ? P.f*MIN : (P.start ? Math.max(0, P.start + P.dur - now()) : P.dur);
+  const fmt = ms => { const s = Math.ceil(ms/1000); return pad(Math.floor(s/60)) + ':' + pad(s % 60); };
+
+  // ---- pixel bits ----
+  const FONT = { '0':['01110','10001','10011','10101','11001','10001','01110'], '1':['00100','01100','00100','00100','00100','00100','01110'],
+    '2':['01110','10001','00001','00010','00100','01000','11111'], '3':['11110','00001','00001','01110','00001','00001','11110'],
+    '4':['00010','00110','01010','10010','11111','00010','00010'], '5':['11111','10000','11110','00001','00001','10001','01110'],
+    '6':['00110','01000','10000','11110','10001','10001','01110'], '7':['11111','00001','00010','00100','01000','01000','01000'],
+    '8':['01110','10001','10001','01110','10001','10001','01110'], '9':['01110','10001','10001','01111','00001','00010','01100'],
+    ':':['00','11','11','00','11','11','00'] };
+  function text(c, str, x, y, s, col){
+    c.fillStyle = col;
+    for (const ch of str){ const g = FONT[ch]; if (!g) continue;
+      for (let r = 0; r < 7; r++) for (let k = 0; k < g[r].length; k++) if (g[r][k] === '1') c.fillRect(x + k*s, y + r*s, s, s);
+      x += (g[0].length + 1)*s; }
+  }
+  const textW = (str, s) => [...str].reduce((a, ch) => a + ((FONT[ch] || ['']) [0].length + 1)*s, -s);
+  function bitmap(rows, pal, scale = 1){
+    const c = document.createElement('canvas'); c.width = rows[0].length*scale; c.height = rows.length*scale;
+    const x = c.getContext('2d');
+    rows.forEach((r, y) => [...r].forEach((ch, i) => { if (pal[ch]){ x.fillStyle = pal[ch]; x.fillRect(i*scale, y*scale, scale, scale); } }));
+    return c;
+  }
+  const TOMATO = bitmap(['....gg...','..gggg...','.rrgrrr..','rrrrrrrr.','rrwrrrrrr','rwrrrrrrr','rrrrrrrrr','.rrrrrrd.','..rrrrd..'].map(r => r.padEnd(9,'.')),
+    { g:'#4fa146', r:'#e5533d', w:'#ffb3a0', d:'#b83a2a' });
+  const HEART = bitmap(['.oo.oo.','ohhohho','ohwhhho','ohhhhho','.ohhho.','..oho..','...o...'], { o:'#c2506c', h:'#f58fa8', w:'#ffd8e2' });
+  const HEART0 = bitmap(['.oo.oo.','o..o..o','o.....o','o.....o','.o...o.','..o.o..','...o...'], { o:'#d9b8a6' });
+  const PELLET = bitmap(['...........','..c.cc.c...','.cbcbbcbc..','bwwwwwwwwwb','.bwwwwwwwb.','..bbbbbbb..'], { c:'#b07a3c', b:'#8a6040', w:'#e7d3ae' });
+  const iconURL = (cv, k) => { const c = document.createElement('canvas'); c.width = cv.width*k; c.height = cv.height*k;
+    const x = c.getContext('2d'); x.imageSmoothingEnabled = false; x.drawImage(cv, 0, 0, c.width, c.height); return c.toDataURL(); };
+  const URL_T = iconURL(TOMATO, 6), URL_H = iconURL(HEART, 6), URL_H0 = iconURL(HEART0, 6), URL_P = iconURL(PELLET, 5);
+
+  // ---- scene backgrounds (160x88 low-res, scaled 5x) ----
+  function makeBg(withMat, H = 88, F = 50){
+    const c = document.createElement('canvas'); c.width = 160; c.height = H; const b = c.getContext('2d');
+    b.fillStyle = '#fff6e2'; b.fillRect(0,0,160,F);
+    b.fillStyle = '#f6e6c8'; for (let y = 5; y < F-4; y += 11) for (let x = (y/11|0)%2 ? 5 : 11; x < 160; x += 12) b.fillRect(x,y,1,1);
+    b.fillStyle = '#e8cfa2'; b.fillRect(0,F-3,160,3); b.fillStyle = '#a8703f'; b.fillRect(0,F,160,1);
+    for (let y = F+1; y < H; y++){ const row = (y - F - 1)/7|0; b.fillStyle = (y - F - 1) % 7 === 6 ? '#a8703f' : (row % 2 ? '#c99158' : '#d09a62'); b.fillRect(0,y,160,1); }
+    let s = 7; const rnd = () => (s = (s*16807) % 2147483647)/2147483647;
+    for (let row = 0; row < Math.ceil((H - F)/7); row++){ const y0 = F + 1 + row*7; let x = Math.floor(rnd()*30);
+      while (x < 160){ b.fillStyle = '#a8703f'; b.fillRect(x, y0, 1, 6); b.fillStyle = '#dcab73'; b.fillRect(x+1, y0, 6, 1); x += 34 + Math.floor(rnd()*24); } }
+    if (withMat){
+      // hay pile
+      const hay = ['#e9c45c','#d6a63c','#f6dc8c','#c8932c'];
+      for (let i = 0; i < 260; i++){ const x = 3 + rnd()*36, top = 34 + Math.abs(x - 21)*0.55, y = top + rnd()*(F + 10 - top);
+        b.fillStyle = hay[Math.floor(rnd()*4)]; const l = 2 + Math.floor(rnd()*4), d = rnd() < .5 ? 1 : -1;
+        for (let k = 0; k < l; k++) b.fillRect(Math.round(x + k*d), Math.round(y - k*0.6), 1, 1); }
+      // woven rug
+      b.fillStyle = '#c9a15c'; b.fillRect(50,64,104,19);
+      b.fillStyle = '#f1dba4'; b.fillRect(51,65,102,17);
+      for (let y = 66; y < 81; y += 2) for (let x = 52 + (y % 4 ? 0 : 1); x < 152; x += 2){ b.fillStyle = '#e4c784'; b.fillRect(x,y,1,1); }
+      b.fillStyle = '#d9b26b'; for (let x = 51; x < 153; x += 3){ b.fillRect(x,83,1,2); b.fillRect(x,62,1,2); }
+      // cushion
+      b.fillStyle = '#3f5f86'; b.fillRect(60,63,84,15); b.fillRect(58,65,88,11);
+      b.fillStyle = '#5b80aa'; b.fillRect(61,64,82,12); b.fillRect(59,66,86,8);
+      b.fillStyle = '#7ea4cc'; b.fillRect(62,64,80,2);
+      b.fillStyle = '#4a6d96'; b.fillRect(61,75,82,1);
+    }
+    return c;
+  }
+  const BG_F = makeBg(true), BG_B = makeBg(false, 112, 70);
+
+  // ---- DOM ----
+  const $ = id => document.getElementById(id);
+  const el = { fm:$('fm'), back:$('fmBack'), tT:$('tabTimer'), tR:$('tabRec'), pF:$('pFocus'), pB:$('pBreak'), pR:$('pRec'),
+    fTitle:$('fTitle'), ring:$('ringCv'), round:$('fRound'), sets:$('fSets'), fCv:$('fCv'), fBub:$('fBub'), start:$('fStart'), give:$('fGive'),
+    bTitle:$('bTitle'), bClock:$('bClock'), bCv:$('bCv'), bBub:$('bBub'), rew:$('bRew'), feedB:$('bFeed'), skip:$('bSkip'),
+    rPig:$('rPig'), rMonth:$('rMonth'), rGrid:$('rGrid'), rToday:$('rToday'), rStreak:$('rStreak'), rHearts:$('rHearts'), rAff:$('rAff'), rInv:$('rInv'),
+    roomBtn:$('focusBtn'), feedCnt:$('feedCnt') };
+  let view = 'timer', open = false, anim = { mood:null, moodT:0, eatT:-1, eatKind:'lettuce', t0:performance.now(), bubT:0 }, giveArm = 0;
+
+  function fBubble(txt, sec){ el.fBub.textContent = txt; el.fBub.style.opacity = 1; anim.bubT = sec; }
+
+  // ---- state changes ----
+  function startFocus(){
+    P.phase = 'focus'; P.start = now(); P.dur = P.f*MIN; P.reward = null; P.rewardSeen = true; saveP();
+    anim.mood = null; fBubble('陪你一起專心 Zzz', 3);
+    SND.play(['chirp_wake'], {cooldown:1}); render();
+  }
+  function giveUp(){
+    if (P.phase !== 'focus') return;
+    if (!giveArm){ giveArm = now(); el.give.textContent = '確定放棄？'; el.give.classList.add('warn'); return; }
+    giveArm = 0; P.phase = 'idle'; P.start = 0; saveP();
+    anim.mood = 'sad'; anim.moodT = 6; fBubble('嗚…沒關係，下次再一起加油', 5);
+    render();
+  }
+  function completeFocus(){
+    const k = dkey(now());
+    D.days[k] = (D.days[k] || 0) + 1; D.total++;
+    const big = P.f >= 50, rw = { lettuce: big ? 2 : 1, feed: big ? 10 : 5 };
+    D.inv.lettuce += rw.lettuce; D.inv.feed += rw.feed;
+    const st = streak(); D.aff = Math.min(100, D.aff + 5 + (st >= 2 ? 2 : 0)); saveD();
+    const long = D.days[k] % 4 === 0;
+    P.phase = 'break'; P.long = long; P.dur = (long ? 15 : P.b)*MIN; P.reward = rw; P.rewardSeen = false;
+    P.start = document.hidden ? 0 : now();   // finished while away → break starts when she comes back
+    P.soundDue = true; saveP();
+    if (!document.hidden) celebrate();
+  }
+  function celebrate(){
+    if (P.soundDue){ P.soundDue = false; saveP(); SND.play(['wheek_feed'], {cooldown:0.5}); }
+    view = 'timer'; anim.t0 = performance.now(); anim.eatT = -1;
+    if (!open) openFM('timer'); else render();
+  }
+  function endBreak(silent){
+    P.phase = 'idle'; P.start = 0; P.reward = null; P.rewardSeen = true; saveP();
+    anim.mood = null;
+    if (!silent){ fBubble('休息結束～ 再來一輪吧！', 4); SND.play(['wheek_short1','wheek_short2'], {group:'wheek', cooldown:0.5}); }
+    render();
+  }
+  function feedPig(){
+    let kind = null;
+    if (D.inv.lettuce > 0){ D.inv.lettuce--; kind = 'lettuce'; }
+    else if (D.inv.feed > 0){ D.inv.feed--; kind = 'feed'; }
+    P.rewardSeen = true; saveP(); el.rew.hidden = true;
+    if (!kind){ el.bBub.textContent = '存糧吃光了～'; el.bBub.style.opacity = 1; return; }
+    D.aff = Math.min(100, D.aff + 1); saveD();
+    anim.eatT = 0; anim.eatKind = kind; el.bBub.textContent = kind === 'lettuce' ? '嚼嚼嚼…好好吃！' : '喀滋喀滋～'; el.bBub.style.opacity = 1;
+    SND.play(['wheek_feed'], {cooldown:0.8}); render();
+  }
+  // room feeding can use a focus-earned lettuce (never required)
+  function useLettuce(){ if (D.inv.lettuce > 0){ D.inv.lettuce--; saveD(); paintRoom(); return true; } return false; }
+
+  function tick(){
+    if (P.phase === 'focus' && now() >= P.start + P.dur) completeFocus();
+    if (P.phase === 'break'){
+      if (!P.start && !document.hidden){ P.start = now(); saveP(); celebrate(); }
+      else if (P.soundDue && !document.hidden) celebrate();
+      else if (P.start && now() >= P.start + P.dur && P.rewardSeen) endBreak(document.hidden);
+      else if (P.start && now() >= P.start + P.dur && !P.rewardSeen){ P.start = now() - P.dur; }   // hold at 00:00 until she has seen the reward
+    }
+    if (giveArm && now() - giveArm > 3500){ giveArm = 0; }
+    paintRoom(); if (open) render();
+  }
+
+  // ---- drawing ----
+  function drawRing(){
+    const c = el.ring.getContext('2d'); c.clearRect(0,0,100,100);
+    const frac = P.phase === 'focus' ? remain()/P.dur : 1, cx = 50, cy = 51;
+    for (let y = 0; y < 100; y++) for (let x = 0; x < 100; x++){
+      const dx = x + 0.5 - cx, dy = y + 0.5 - cy, r = Math.hypot(dx, dy);
+      if (r < 37 || r > 46) continue;
+      let a = Math.atan2(dx, -dy)/(Math.PI*2); if (a < 0) a += 1;
+      const on = a <= frac, edge = r < 38.2 || r > 44.8;
+      c.fillStyle = on ? (edge ? '#c9443a' : (r > 43.6 ? '#ef7a6a' : '#e85c4a')) : (edge ? '#dccbad' : '#ece0c8');
+      c.fillRect(x, y, 1, 1);
+    }
+    c.imageSmoothingEnabled = false; c.drawImage(TOMATO, 46, 1, 9, 9);
+    const s = fmt(remain()), w = textW(s, 2);
+    text(c, s, Math.round(50 - w/2), 36, 2, '#4a2e1c');
+  }
+  function drawClock(ms){
+    const c = el.bClock.getContext('2d'); c.clearRect(0,0,30,7);
+    const s = fmt(ms); text(c, s, Math.round(15 - textW(s,1)/2), 0, 1, '#5a3820');
+  }
+  function drawPig(c, pose, cx, floor, sc, o = {}){
+    const im = pimg[sel][pose], m = PIGS[sel].meta[pose];
+    const w = m.w*sc, h = m.h*sc;
+    c.save(); c.translate(cx, floor - (o.lift || 0)); c.scale(o.sx || 1, o.sy || 1);
+    c.drawImage(im, -m.cx*sc, -h, w, h); c.restore();
+    return { top: floor - (o.lift || 0) - h*(o.sy || 1) };
+  }
+  function shadow(c, x, y, w, a){ c.fillStyle = 'rgba(90,50,20,' + a + ')'; c.beginPath(); c.ellipse(x, y, w, 12, 0, 0, Math.PI*2); c.fill(); }
+  function drawFocusScene(t){
+    const c = el.fCv.getContext('2d');
+    c.imageSmoothingEnabled = false; c.drawImage(BG_F, 0, 0, 800, 440);
+    c.imageSmoothingEnabled = true; c.imageSmoothingQuality = 'high';
+    const CXp = 510, FL = 366;
+    if (P.phase === 'focus'){
+      const br = Math.sin(t*Math.PI*2/3.6);
+      drawPig(c, 'sleep', CXp, FL, 1.12, { sy:1 + 0.025*br, sx:1 - 0.01*br });
+      // floating Zz
+      for (let i = 0; i < 2; i++){ const k = ((t/2.6) + i*0.5) % 1;
+        c.globalAlpha = k < 0.15 ? k/0.15 : (k > 0.7 ? (1-k)/0.3 : 1);
+        const zs = 0.45 + 0.35*k, im = img.z;
+        c.drawImage(im, CXp + 95 + k*40 + Math.sin(k*9)*6, FL - 150 - k*70, im.width*zs, im.height*zs); c.globalAlpha = 1; }
+    } else {
+      const sad = anim.mood === 'sad';
+      const br = Math.sin(t*Math.PI*2/2.6);
+      const r = drawPig(c, 'idle', CXp, FL, 1.0, { sy:(sad ? 0.95 : 1) + 0.014*br, sx:(sad ? 1.03 : 1) - 0.007*br });
+      if (sad){ // little sweat drop
+        const m = PIGS[sel].meta.idle, x = CXp + (m.w - m.cx)*1.0 - 18, y = r.top + 40 + (t*30 % 14);
+        c.fillStyle = '#8ec5ef'; c.fillRect(x, y, 10, 14); c.fillRect(x + 2, y - 5, 6, 5); c.fillStyle = '#e4f4ff'; c.fillRect(x + 2, y + 3, 3, 4);
+      }
+    }
+  }
+  function drawBreakScene(t){
+    const c = el.bCv.getContext('2d');
+    c.imageSmoothingEnabled = false; c.drawImage(BG_B, 0, 0, 800, 560);
+    c.imageSmoothingEnabled = true; c.imageSmoothingQuality = 'high';
+    const CXp = 420, FL = 345, SC = 1.15;
+    if (anim.eatT >= 0){
+      anim.eatT = (performance.now() - anim.eatStart)/1000;
+      const m = PIGS[sel].meta, L = m.lettuce, em = m.eat, sc = SC;
+      shadow(c, CXp, FL - 2, 120, 0.18);
+      const ch = Math.sin(anim.eatT*Math.PI*2*3.2);
+      drawPig(c, 'eat', CXp, FL, sc, { sy:1 - 0.012*ch, sx:1 + 0.006*ch });
+      if (anim.eatKind === 'lettuce') c.drawImage(img.lettuce, CXp - em.cx*sc + L.x*sc, FL - em.h*sc + L.y*sc, L.w*sc, L.h*sc);
+      else { c.imageSmoothingEnabled = false; c.drawImage(PELLET, CXp - em.cx*sc + L.x*sc, FL - 30, 11*8, 6*8); }
+      if (anim.eatT > 3){ anim.eatT = -1; anim.t0 = performance.now(); el.bBub.textContent = '吃飽飽～ 💚'; }
+      return;
+    }
+    const P_ = 1.3, k = ((t % P_)/P_), AIR = 0.55;
+    let lift = 0, pose = 'idle', sy = 1, sx = 1;
+    if (k < AIR){ const q = k/AIR; lift = 110*(PIGS[sel].meta.jumpK ? Math.max(0.5, PIGS[sel].meta.jumpK) : 1)*4*q*(1-q); pose = 'jump'; }
+    else { const q = (k - AIR)/(1 - AIR); const sq = Math.max(0, Math.sin((1 - q*3)*Math.PI/2)); sy = 1 - 0.1*sq*(q < 0.33); sx = 1 + 0.07*sq*(q < 0.33); }
+    shadow(c, CXp, FL - 2, 110*(1 - lift/240), 0.18);
+    drawPig(c, pose, CXp, FL, SC, { lift, sy, sx });
+    // popcorn confetti
+    for (let i = 0; i < 7; i++){
+      const ph = (t*0.35 + i/7) % 1, ang = i*2.1, rad = 190 + (i % 3)*30;
+      const x = CXp + Math.cos(ang)*rad, y = 250 + Math.sin(ang)*120 - ph*40;
+      const im = i % 2 ? img.popcorn : img.spark, s = 0.42 + (i % 3)*0.08;
+      c.globalAlpha = Math.min(1, Math.sin(ph*Math.PI)*1.6);
+      c.save(); c.translate(x, y); c.rotate(ph*3 + i); c.drawImage(im, -im.width*s/2, -im.height*s/2, im.width*s, im.height*s); c.restore();
+    }
+    c.globalAlpha = 1;
+  }
+
+  function render(){
+    el.tT.classList.toggle('on', view === 'timer'); el.tR.classList.toggle('on', view === 'rec');
+    const brk = P.phase === 'break';
+    el.pF.hidden = !(view === 'timer' && !brk); el.pB.hidden = !(view === 'timer' && brk); el.pR.hidden = view !== 'rec';
+    if (view === 'timer' && !brk){
+      const run = P.phase === 'focus';
+      el.fTitle.textContent = run ? '專心中' : '番茄鐘';
+      el.round.textContent = '第 ' + (today() + 1) + ' 輪';
+      el.sets.hidden = run; el.start.hidden = run; el.give.hidden = !run;
+      if (!giveArm){ el.give.textContent = '放棄'; el.give.classList.remove('warn'); }
+      el.sets.querySelectorAll('button').forEach(b => b.classList.toggle('on', +(b.dataset.f || b.dataset.b) === (b.dataset.f ? P.f : P.b)));
+      drawRing();
+    }
+    if (view === 'timer' && brk){
+      el.bTitle.textContent = P.long ? '長休息時間' : '休息時間';
+      drawClock(remain());
+      if (P.reward && !P.rewardSeen){
+        el.rew.innerHTML = '+' + P.reward.lettuce + ' 生菜<br>+' + P.reward.feed + ' 飼料' + (P.long ? '<small>完成 4 輪！🎉</small>' : '');
+        if (el.rew.hidden){ el.rew.hidden = false; el.bBub.textContent = 'wheek！'; el.bBub.style.opacity = 1; }
+      } else el.rew.hidden = true;
+      el.feedB.disabled = false;
+    }
+    if (view === 'rec') renderRec();
+  }
+  function renderRec(){
+    el.rPig.src = PIGS[sel].imgs.idle;
+    const d = new Date(now()), y = d.getFullYear(), mo = d.getMonth();
+    el.rMonth.textContent = y + ' 年 ' + (mo + 1) + ' 月';
+    let h = ['日','一','二','三','四','五','六'].map(w => '<span class="wd">' + w + '</span>').join('');
+    const first = new Date(y, mo, 1).getDay(), n = new Date(y, mo + 1, 0).getDate(), tk = dkey(now());
+    for (let i = 0; i < first; i++) h += '<span></span>';
+    for (let i = 1; i <= n; i++){
+      const k = y + '-' + pad(mo + 1) + '-' + pad(i), c = D.days[k] || 0;
+      h += '<span class="' + (k === tk ? 't' : '') + '" title="' + k + '">' + (c ? '<img src="' + URL_T + '" alt="🍅">' + (c > 1 ? '<b>' + c + '</b>' : '') : i) + '</span>';
+    }
+    el.rGrid.innerHTML = h;
+    el.rToday.textContent = '今天專心 ' + today() + ' 輪';
+    el.rStreak.textContent = '連續 ' + streak() + ' 天';
+    const full = Math.ceil(D.aff/20);
+    el.rHearts.innerHTML = [0,1,2,3,4].map(i => '<img alt="" src="' + (i < full ? URL_H : URL_H0) + '">').join('');
+    el.rAff.textContent = '親密度 ' + D.aff + ' / 100・累積 ' + D.total + ' 顆番茄';
+    el.rInv.innerHTML = '<div><img class="sm" src="' + IMGS.lettuce + '" alt="">生菜 ×' + D.inv.lettuce + '</div>'
+      + '<div><img src="' + URL_P + '" alt="">飼料 ×' + D.inv.feed + '</div>'
+      + '<div><img src="' + URL_T + '" alt="">番茄 ×' + D.total + '</div>';
+  }
+  function paintRoom(){
+    if (el.roomBtn) el.roomBtn.textContent = P.phase === 'focus' ? '🍅 專心中 ' + fmt(remain()) : (P.phase === 'break' ? '☕ 休息中 ' + fmt(remain()) : '🍅 專心');
+    if (el.feedCnt){ el.feedCnt.hidden = !(D.inv.lettuce > 0); el.feedCnt.textContent = '×' + D.inv.lettuce; }
+  }
+  let raf = 0;
+  function loop(){
+    if (!open){ raf = 0; return; }
+    const t = (performance.now() - anim.t0)/1000;
+    if (anim.bubT > 0){ anim.bubT -= 1/60; if (anim.bubT <= 0) el.fBub.style.opacity = 0; }
+    if (anim.moodT > 0){ anim.moodT -= 1/60; if (anim.moodT <= 0) anim.mood = null; }
+    if (view === 'timer'){ if (P.phase === 'break') drawBreakScene(t); else drawFocusScene(t); }
+    raf = requestAnimationFrame(loop);
+  }
+  function openFM(v){ view = v || 'timer'; open = true; el.fm.hidden = false; render(); if (!raf) raf = requestAnimationFrame(loop); }
+  function closeFM(){ open = false; el.fm.hidden = true; }
+
+  // ---- wiring ----
+  el.roomBtn.addEventListener('click', e => { e.stopPropagation(); openFM('timer'); });
+  el.back.addEventListener('click', closeFM);
+  el.tT.addEventListener('click', () => { view = 'timer'; render(); });
+  el.tR.addEventListener('click', () => { view = 'rec'; render(); });
+  el.start.addEventListener('click', startFocus);
+  el.give.addEventListener('click', giveUp);
+  el.feedB.addEventListener('click', () => { anim.eatStart = performance.now(); feedPig(); });
+  el.skip.addEventListener('click', () => { P.rewardSeen = true; endBreak(true); startFocus(); });
+  el.sets.addEventListener('click', e => { const b = e.target.closest('button'); if (!b || P.phase !== 'idle') return;
+    if (b.dataset.f) P.f = +b.dataset.f; if (b.dataset.b) P.b = +b.dataset.b; saveP(); render(); });
+  document.addEventListener('visibilitychange', tick);
+  window.addEventListener('pageshow', tick);
+  window.addEventListener('focus', tick);
+  setInterval(tick, 500);
+  paintRoom();
+
+  return { tick, useLettuce, open: openFM, close: closeFM, startFocus, giveUp, feedPig, render,
+    state: () => ({ ...P, remain: remain(), open, view }), data: () => JSON.parse(JSON.stringify({ ...D, today: today(), streak: streak() })),
+    warp(ms){ if (P.start){ P.start -= ms; saveP(); } tick(); } };
+})();
 
 // ---------- pose / transform per state ----------
 function compute(dt){
@@ -460,7 +875,8 @@ function step(dt){
   ui.energy.style.width = S.energy.toFixed(0) + '%';
 }
 function start(){
-  window.__gp = { audio: SND.status, unlockAudio: SND.unlock, pet, feed, jump, sleep, wake, step, state: () => S.state, pause(){ paused = true; }, choose, variant: () => sel, ready:true };
+  window.__gp = { audio: SND.status, unlockAudio: SND.unlock, pet, feed, jump, sleep, wake, step, state: () => S.state, pause(){ paused = true; }, choose, variant: () => sel, pomo: POMO, ready:true };
+  POMO.tick();
   if (!hadChoice) openPicker(false);
   last = performance.now(); requestAnimationFrame(frame);
 }
